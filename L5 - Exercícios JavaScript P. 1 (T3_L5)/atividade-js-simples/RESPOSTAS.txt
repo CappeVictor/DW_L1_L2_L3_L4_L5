@@ -1,0 +1,225 @@
+# INTRODUÇÃO AO JAVASCRIPT
+## Respostas das atividades
+
+### ETAPA 0 - PREPARANDO O AMBIENTE
+
+1. A mensagem apareceu na aba Console, depois que apertei F12 no navegador.
+
+2. O defer faz o JavaScript esperar a página carregar primeiro. Isso é importante porque, se o código tentar usar um botão que ainda não carregou, pode dar erro.
+
+3. Se o nome no HTML fosse codigo.js e o arquivo fosse script.js, o navegador não ia achar o arquivo. Aí o JavaScript não ia funcionar.
+
+
+### ETAPA 1 - O QUE É JAVASCRIPT
+
+Resultados da tabela:
+* 2 + 3 = 5
+* "Web" + " I" = "Web I"
+* "5" + 3 = "53"
+* "5" - 3 = 2
+* 2 + 3 * 4 = 14
+* (2 + 3) * 4 = 20
+
+1. O resultado muda porque o sinal de + também serve para juntar textos. Como o 5 está entre aspas, ele junta com o 3 e vira 53. Já no menos ele faz a conta 5 - 3, que dá 2.
+
+2. Na primeira conta, a multiplicação vem antes, então fica 2 + 12 = 14. Na segunda, primeiro faço o que está no parêntese: 2 + 3 = 5. Depois 5 * 4 = 20.
+
+
+### ETAPA 2 - VARIÁVEIS E TIPOS
+
+1. Na ordem, aparece:
+   * string
+   * number
+   * boolean
+   * undefined
+
+   A escola é texto, a nota é número, aprovado é verdadeiro ou falso, e sobrenome ainda não tem valor.
+
+2. Aparece o erro `Assignment to constant variable`. É porque escola foi criada com `const` e depois o código tenta mudar o valor. Para poder mudar, teria que usar `let`.
+
+3. **Validação de nomes de variáveis:**
+   * `nota_final`: pode, porque aceita underline.
+   * `3nota`: não pode, porque começa com número.
+   * `nota-final`: não pode, porque o hífen não serve para nome de variável.
+   * `$total`: pode, porque aceita cifrão.
+   * `class`: não pode, porque já é uma palavra usada pelo JavaScript.
+
+4. Aparece 16. Primeiro idade vale 15, depois soma mais 1 e passa a valer 16.
+
+   No outro teste, quando a nota muda para 9, o console mostra 9. Se eu colocar "8.5" entre aspas, o tipo vira string, porque passa a ser um texto.
+
+
+### ETAPA 3 - OPERADORES E CONVERSÃO
+
+1. As 8 linhas do console ficam assim:
+   * 9 5 14
+   * 3.5
+   * 1
+   * 49
+   * Olá, Ana! 7 dividido por 2 é 3.5.
+   * 8.5
+   * 7.51
+   * NaN
+
+   As contas são:
+   * 7 + 2 = 9
+   * 7 - 2 = 5
+   * 7 * 2 = 14
+   * 7 / 2 = 3.5
+   * 7 % 2 = 1, que é o resto da divisão
+   * 7 ** 2 = 49, porque 7 vezes 7 é 49
+
+2. `Number("7.5") + 1` dá 8.5 porque transforma o texto em número antes de somar. Já `"7.5" + 1` dá 7.51, porque junta os dois. Quando a gente pega uma nota de um formulário, precisa usar `Number` para fazer a conta certa.
+
+3. **Respostas rápidas:**
+   * 10 % 3 = 1, porque 3 cabe três vezes no 10 e sobra 1.
+   * 2 ** 3 = 8, porque 2 * 2 * 2 = 8.
+   * 10 / 4 = 2.5.
+
+
+### ETAPA 4 - CONDICIONAIS
+
+1. Com temperatura 20 aparece Agradável, porque ela é maior ou igual a 20. Com 30 aparece Calor, porque entra na primeira condição. Se fosse 19, apareceria Frio.
+
+2. As quatro saídas são:
+   * true
+   * false
+   * true
+   * false
+
+   Isso acontece porque `==` pode comparar fazendo conversão. Já `===` compara o valor e o tipo. É melhor usar `===` para não dar resultados estranhos.
+
+3. A condição é:
+   ```javascript
+   nota >= 0 && nota <= 10
+   ```
+   Usei `&&` porque a nota precisa ser pelo menos 0 e ao mesmo tempo não pode passar de 10.
+
+
+### ETAPA 5 - REPETIÇÃO E LISTAS
+
+No console aparece:
+* Linha 1
+* Linha 2
+* Linha 3
+* Linha 4
+* Linha 5
+* 6.875
+* 5
+* 8
+* 6.5
+* 9
+* 4
+* 7
+
+1. A média das quatro notas é 6.875.
+   Fiz assim:
+   * 8 + 6.5 = 14.5
+   * 14.5 + 9 = 23.5
+   * 23.5 + 4 = 27.5
+   * 27.5 / 4 = 6.875
+
+2. O primeiro índice é 0. O último é `length - 1`. Como a lista tem 4 notas, o último índice é 3.
+
+3. Código para mostrar os pares de 2 até 10:
+   ```javascript
+   for (let i = 2; i <= 10; i += 2) {
+       console.log(i);
+   }
+   ```
+   Vai aparecer 2, 4, 6, 8 e 10, um por linha. Ele começa no 2 e vai pulando de 2 em 2.
+
+4. Teste de mesa:
+   * No começo, total = 0.
+   * Quando i = 1, total = 1.
+   * Quando i = 2, total = 3.
+   * Quando i = 3, total = 6.
+   * Quando i = 4, total = 10.
+
+   Então o console mostra 10.
+
+
+### ETAPA 6 - FUNÇÕES
+
+No primeiro código, `dobro(21)` mostra 42 e a média das notas mostra 6.875.
+Se testar `dobro(5)`, dá 10. Se testar `media([10, 6])`, dá 8.
+
+1. O código mostra undefined porque a função soma faz a conta, mas não devolve ela. Precisa colocar `return`.
+   ```javascript
+   function soma(a, b) {
+       return a + b;
+   }
+
+   console.log(soma(2, 3));
+   ```
+   Agora vai mostrar 5.
+
+2. Minha função ficou assim:
+   ```javascript
+   function ehPar(n) {
+       return n % 2 === 0;
+   }
+   ```
+   Quando o resto da divisão por 2 é 0, o número é par. Então `ehPar(4)` dá true e `ehPar(7)` dá false.
+
+3. `console.log` mostra o valor no console. O `return` devolve o valor da função para poder usar depois.
+
+
+### ETAPA 7 - DOM E EVENTOS
+
+No código, o texto da mensagem muda para *O JavaScript está funcionando!* e fica verde. O botão também conta quantas vezes cliquei e passa a mostrar *Clicado!*.
+
+1. Se tirar defer, aparece um erro de null, porque o JavaScript tenta mexer no parágrafo antes de ele ser carregado. Depois coloquei o defer de volta.
+
+2. Quando clico, a função do click é executada. Ela soma 1 na variável cliques, mostra o novo número na página e muda o texto do botão para Clicado!.
+
+3. Usei `let` em cliques porque o número precisa mudar toda vez que clico. Com `const` eu não conseguiria atualizar o valor.
+
+
+### ETAPA 8 - CALCULADORA DE MÉDIA
+
+* **8.1.** Fiz uma página com dois campos de nota, um botão para calcular e um lugar para mostrar o resultado.
+* **8.2.** Peguei os valores dos campos usando `.value`. Eles chegam como texto, então transformei em número com `Number()`.
+* **8.3.** A conta da média ficou assim:
+  ```javascript
+  function calcularMedia(n1, n2) {
+      return (n1 + n2) / 2;
+  }
+  ```
+  Testes:
+  * (8 + 7) / 2 = 7.5
+  * (10 + 5) / 2 = 7.5
+  * (6 + 6) / 2 = 6
+
+  Não posso fazer `n1 + n2 / 2` sem parênteses porque aí a divisão vem primeiro. Com 8 e 6 daria 8 + 3 = 11, mas a média certa é 7.
+
+* **8.4.** Para conferir se a nota é válida, usei:
+  ```javascript
+  function notaValida(n) {
+      return !Number.isNaN(n) && n >= 0 && n <= 10;
+  }
+  ```
+  Testes:
+  * notaValida(5) = true
+  * notaValida(10) = true
+  * notaValida(11) = false
+  * notaValida(-1) = false
+  * notaValida(NaN) = false
+
+  Ela só aceita números de 0 até 10.
+
+* **8.5.** Primeiro confiro se algum campo está vazio ou se a nota é inválida. Se tiver problema, aparece *Informe duas notas entre 0 e 10.* Se estiver tudo certo, faço a média. Quando ela é 6 ou mais, mostra *Aprovado*. Se for menor que 6, mostra *Abaixo da média*.
+
+* **8.6. Resultados dos testes:**
+  * Nota 1: 8, nota 2: 7 -> Média: 7.5 - Aprovado
+  * Nota 1: 5, nota 2: 6 -> Média: 5.5 - Abaixo da média
+  * Nota 1: 6, nota 2: 6 -> Média: 6.0 - Aprovado
+  * Nota 1: 10, nota 2: 10 -> Média: 10.0 - Aprovado
+  * Nota 1: vazio, nota 2: 5 -> Informe duas notas entre 0 e 10.
+  * Nota 1: 11, nota 2: 5 -> Informe duas notas entre 0 e 10.
+
+**Checkpoint 1.** Deixei calcularMedia separada porque assim fica mais fácil usar a mesma conta em outra parte do código e também entender o que cada parte faz.
+
+**Checkpoint 2.** Só teria que mudar uma linha: `const NOTA_MINIMA = 6;` para `const NOTA_MINIMA = 7;`. O resto do código já usa essa variável para conferir se passou.
+
+Os desafios que vêm depois são opcionais no material, então deixei a calculadora seguindo só o que foi pedido na atividade principal.
